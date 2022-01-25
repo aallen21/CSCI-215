@@ -2,78 +2,79 @@
 <head>
     <title>Welcome to CSCI-215!</title>
 </head>
-<body>
-<h1>Taco Time</h1>
-<p>
-    Below is a breakdown of the order:
-</p>
-<div>
-    Tacos: <span id="tacoCount"></span> * <span id="tacoPrice"></span> = $<span id="tacoTotal"></span>
-</div>
-<div>
-    Burritos: <span id="burritoCount"></span> * <span id="burritoPrice"></span> = $<span id="burritoTotal"></span>
-</div>
-<hr>
-<div>
-    Subtotal: $<span id="subTotal"></span>
-</div>
-<div>
-    Tax Amount: $<span id="taxAmount"></span>
-</div>
-<div>
-    Total: $<span id="grandTotal"></span>
-</div>
-<script type="text/Javascript">
-    /*
-        Taco Time Drive-Thru
+    <body>
+    <h1>Taco Time</h1>
+    <p>
+        Below is a breakdown of the order:
+    </p>
+    <div>
+        Tacos: <span id="tacoCount"></span> * <span id="tacoPrice"></span> = $<span id="tacoTotal"></span>
+    </div>
+    <div>
+        Burritos: <span id="burritoCount"></span> * <span id="burritoPrice"></span> = $<span id="burritoTotal"></span>
+    </div>
+    <hr>
+    <div>
+        Subtotal: $<span id="subTotal"></span>
+    </div>
+    <div>
+        Tax Amount: $<span id="taxAmount"></span>
+    </div>
+    <div>
+        Total: $<span id="grandTotal"></span>
+    </div>
+        <script type="text/Javascript">
+            /*
+                Taco Time Drive-Thru
 
-        In October 1933, White Star Cafeteria created a week-long campaign in order to let locals know that they
-        were offering "Mexican tacos" each Tuesday. Throughout the next several decades, a number of restaurants
-        had designated Tuesday as the day for special deals on tacos.
+                In October 1933, White Star Cafeteria created a week-long campaign in order to let locals know that they
+                were offering "Mexican tacos" each Tuesday. Throughout the next several decades, a number of restaurants
+                had designated Tuesday as the day for special deals on tacos.
 
-        Write the following program using JavaScript to compute your "Taco Tuesday" order:
+                Write the following program using JavaScript to compute your "Taco Tuesday" order:
 
-            1. Input: Prompt the user to enter some number of tacos.
-            2. Input: Prompt the user to enter some number of burritos.
-            3. Calculate: Compute the total order and add sales tax
-            4. Output: Display the various data values in the UI.
+                    1. Input: Prompt the user to enter some number of tacos.
+                    2. Input: Prompt the user to enter some number of burritos.
+                    3. Calculate: Compute the total order and add sales tax
+                    4. Output: Display the various data values in the UI.
 
-        Given:
-            • Tacos cost $1.19
-            • Burritos cost $2.49
-            • Sales tax is 6.5%
+                Given:
+                    • Tacos cost $1.19
+                    • Burritos cost $2.49
+                    • Sales tax is 6.5%
 
-        HINT: you use + for addition and * for multiplication
+                HINT: you use + for addition and * for multiplication
 
-    */
+            */
 
-    // define constants
+            // define constants
 
-    let TACO_PRICE = 1.19;
-    let BURRITO_PRICE = 2.49;
-    let TAX = 6.5%;
+            let TACO_PRICE = 1.19;
+            let BURRITO_PRICE = 2.49;
+            let TAX = .065;
 
-    // collect input into variables
+            // collect input into variables
 
-    let tacoOrder = prompt("Please enter the desired number of tacos: ");
-    let burritoOrder = prompt("Please enter the desired number of burritos: ");
+            let tacoOrder = prompt("Please enter the desired number of tacos: ");
+            let burritoOrder = prompt("Please enter the desired number of burritos: ");
 
-    // perform calculations
-    let tacoTot = TACO_PRICE * tacoOrder;
-    let burritoTot = BURRITO_PRICE * burritoOrder;
-    let subTot = (TACO_PRICE * tacoOrder) + (BURRITO_PRICE * burritoOrder);
-    let totalAmount = (subTot * TAX) + subTot;
+            // perform calculations
+            let tacoTot = TACO_PRICE * tacoOrder;
+            let burritoTot = BURRITO_PRICE * burritoOrder;
+            let subTot = tacoTot + burritoTot;
+            let totalTax = subTot * TAX;
+            let totalAmount = totalTax + subTot;
 
-    // display output
-    document.getElementById("tacoCount").innerHTML = tacoOrder;
-    document.getElementById("tacoPrice").innerHTML = TACO_PRICE;
-    document.getElementById("tacoTotal").innerHTML = tacoTot;
-    document.getElementById("burritoCount").innerHTML = burritoOrder;
-    document.getElementById("burritoPrice").innerHTML = BURRITO_PRICE;
-    document.getElementById("burritoTotal").innerHTML = burritoTot;
-    document.getElementById("subTotal").innerHTML = subTot;
-    document.getElementById("taxAmount").innerHTML = TAX;
-    document.getElementById("grandTotal").innerHTML = totalAmount;
-</script>
-</body>
+            // display output
+            document.getElementById("tacoCount").innerHTML = tacoOrder;
+            document.getElementById("tacoPrice").innerHTML = TACO_PRICE.toFixed(2);
+            document.getElementById("tacoTotal").innerHTML = tacoTot.toFixed(2);
+            document.getElementById("burritoCount").innerHTML = burritoOrder;
+            document.getElementById("burritoPrice").innerHTML = BURRITO_PRICE.toFixed(2);
+            document.getElementById("burritoTotal").innerHTML = burritoTot.toFixed(2);
+            document.getElementById("subTotal").innerHTML = subTot.toFixed(2);
+            document.getElementById("taxAmount").innerHTML = totalTax.toFixed(2);
+            document.getElementById("grandTotal").innerHTML = totalAmount.toFixed(2);
+        </script>
+    </body>
 </html>
