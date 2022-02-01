@@ -31,6 +31,7 @@
         Write the following program using JavaScript:
 
             1. Input: Prompt the user to enter some number of big cat names separated by a comma.
+
             2. Calculate: convert the String input into an array using split()
             3. Calculate: build a string that displays the index and value of the original array.
             4. Output: display the array values in the UI in the expected div.
@@ -49,11 +50,26 @@
     */
 
     // input
+    const bigCats = prompt("Enter Big Cats Names: ").split(",");
+    
 
     // compute
+    let catNameString = '';
+    for (let i=0; i<bigCats.length; i++) {
+        catNameString += `${i} - ${bigCats[i]} <br/>`;
+    }
+
+    bigCats.sort();
+
+    let catNameSortedString = '';
+
+    for (let i =0; i<bigCats.length; i++) {
+        catNameSortedString += `${i} - ${bigCats[i]} <br/>`;
+    }
 
     // output into elements in the UI
-
+    document.getElementById("listOfNames").innerHTML = catNameString;
+    document.getElementById("listOfNamesSorted").innerHTML = catNameSortedString;
 </script>
 </body>
 </html>
