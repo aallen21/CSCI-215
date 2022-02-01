@@ -18,32 +18,30 @@
             1. Input: Prompt user to enter a series of numeric values separated by comma (see below).
             2. Calculate: Convert the string to an array using the split() method.
             3. Calculate: Write a for loop to iterate over the array of numbers and sum the values in a variable.
-            4. Output: After the for loop, display the count of items in the array and the sum to the DOM in the
-            expected elements.
+            4. Output: After the for loop, display the count of items in the array and the sum to the DOM in a template using interpolation.
 
         Sample Input: .99,2.12,3.89,6.77,1.25,7.99,3.33
+        Sample
     */
 
     // input
-    const inputArray = prompt("Enter the sample numbers: ").split(",");
-
-
+    let input = prompt("Enter numbers:");
 
     // calculate
+    const numberArray = input.split(",");
 
-
-
-    let sampleSum = 0;
-
-    for (let i=0; i<inputArray.length; i++) {
-
-        sampleSum += Number(inputArray[i])
+    let total = 0;
+    for (let i=0; i < numberArray.length; i++) {
+        // need to convert array value to a number using Number() for arithmetic
+        total += Number(numberArray[i]);
     }
 
     // output
-    document.getElementById("input").innerHTML = inputArray;
-    document.getElementById("count").innerHTML = inputArray.length;
-    document.getElementById("sum").innerHTML = sampleSum.toFixed(2);
+    document.getElementById('input').innerHTML = input;
+    // note the use of the String() function below which converts the numeric value to a string for display
+    document.getElementById('count').innerHTML = String(numberArray.length);
+    // toFixed limits the number of decimal places displayed
+    document.getElementById('sum').innerHTML = total.toFixed(2);
     
 </script>
 </body>

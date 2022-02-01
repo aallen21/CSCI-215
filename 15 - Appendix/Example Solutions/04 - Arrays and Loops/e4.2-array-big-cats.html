@@ -31,7 +31,6 @@
         Write the following program using JavaScript:
 
             1. Input: Prompt the user to enter some number of big cat names separated by a comma.
-
             2. Calculate: convert the String input into an array using split()
             3. Calculate: build a string that displays the index and value of the original array.
             4. Output: display the array values in the UI in the expected div.
@@ -42,7 +41,9 @@
             1 - Tiger
             2 - ...
 
-        Bonus: Modify the original program and add the following:
+        ** Bonus **  
+
+        Modify the original program and add the following:
 
             1. Calculate: sort the array of names.
             2. Calculate: build a string that displays the index and value of the sorted array.
@@ -50,26 +51,37 @@
     */
 
     // input
-    const bigCats = prompt("Enter Big Cats Names: ").split(",");
-    
+    let names = prompt("Enter names:");
 
     // compute
-    let catNameString = '';
-    for (let i=0; i<bigCats.length; i++) {
-        catNameString += `${i} - ${bigCats[i]} <br/>`;
-    }
+    // convert sting to array
+    const namesArray = names.split(",");
 
-    bigCats.sort();
-
-    let catNameSortedString = '';
-
-    for (let i =0; i<bigCats.length; i++) {
-        catNameSortedString += `${i} - ${bigCats[i]} <br/>`;
+    // build list of names to display
+    let listOfNames = '';
+    for (let i=0; i < namesArray.length; i++) {
+        listOfNames += `${i} - ${namesArray[i]} <br/>`;
     }
 
     // output into elements in the UI
-    document.getElementById("listOfNames").innerHTML = catNameString;
-    document.getElementById("listOfNamesSorted").innerHTML = catNameSortedString;
+    document.getElementById('names').innerHTML = names;
+    document.getElementById('listOfNames').innerHTML = listOfNames;
+
+
+    // ** BONUS **
+
+    // sort array
+    namesArray.sort();
+
+    // build list of sorted names to display
+    let listOfNamesSorted = '';
+    for (let i=0; i < namesArray.length; i++) {
+        listOfNamesSorted += `${i} - ${namesArray[i]} <br/>`;
+    }
+
+    // output into elements in the UI
+    document.getElementById('listOfNamesSorted').innerHTML = listOfNamesSorted;
+    
 </script>
 </body>
 </html>

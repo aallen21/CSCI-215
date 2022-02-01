@@ -28,17 +28,15 @@
     */
 
     // collect input
-    let base = prompt("Please enter the base: ");
-    let height = prompt("Please enter the base: ");
+    let base = prompt("Enter base:");
+    let height = prompt("Enter height");
 
     // perform calculations
-    let area = base * height / 2
-    let output = `Pizza heigh is ${height} and pizza base is ${base}`;
-    // display output
+    let area = (base * height) / 2;
 
-    document.getElementById("output").innerHTML = area;
-    console.log("Base is " +base);
-    console.log("Height is " +height);
+    // display output
+    console.log(`base: ${base}, height: ${height}`);
+    document.getElementById('output').innerHTML = `The area of the pizza slice is ${area}`;
 
 </script>
 </body>
