@@ -25,11 +25,26 @@
     */
 
     // input
+    const inputArray = prompt("Enter the sample numbers: ").split(",");
+
+
 
     // calculate
 
-    // output
 
+
+    let sampleSum = 0;
+
+    for (let i=0; i<inputArray.length; i++) {
+
+        sampleSum += Number(inputArray[i])
+    }
+
+    // output
+    document.getElementById("input").innerHTML = inputArray;
+    document.getElementById("count").innerHTML = inputArray.length;
+    document.getElementById("sum").innerHTML = sampleSum.toFixed(2);
+    
 </script>
 </body>
 </html>
