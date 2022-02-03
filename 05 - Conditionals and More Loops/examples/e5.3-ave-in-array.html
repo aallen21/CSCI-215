@@ -27,11 +27,19 @@
     */
 
     // input
+    let input = prompt("Enter integers: ");
+    const inputArray = input.split(",");
 
     // calculations
+    let average = 0;
+    for (let i=0; i<inputArray.length; i++) {
+        average += Number(inputArray[i])
 
+
+    }
+    let avg2 = average/inputArray.length;
     // output
-
+    document.write(avg2.toFixed(0));
 </script>
 </body>
 </html>
