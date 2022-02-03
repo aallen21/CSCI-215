@@ -19,7 +19,9 @@
             3. Display information about each item in the order as well as subtotal, tax, and the overall total.
 
         Example #1:
-        'Polo Shirt',3,23.99;'Blue Jeans',2,49.99;'Tennis Shoes',1,89.88
+        'Polo Shirt',3,23.99;
+        'Blue Jeans',2,49.99;
+        'Tennis Shoes',1,89.88
 
         Expected output:
 
@@ -41,8 +43,37 @@
     */
 
     // inout
+    const TAX = .045;
+    let input = prompt("Enter info: ");
+
+    document.write("=================<br/>");
+    document.write(" Online Order<br/>");
+    document.write("=================<br/>");
+    
 
     // calculations
+    let subtotal = 0;
+    const lineItemArray = input.split(";");
+    for (let i = 0; i<lineItemArray.length; i++) {
+        let lineItemDetailArray = lineItemArray[i].split(",");
+        let lineItemTotal = Number(lineItemDetailArray[1]) * Number(lineItemDetailArray[2]);
+        subtotal += lineItemTotal
+
+        document.write(`${lineItemDetailArray[0]}: ${lineItemTotal}<br/>`);
+    
+
+    }
+
+    
+    let taxAmount = subtotal * TAX;
+    let grandTotal = taxAmount + subtotal;
+    document.write("=================<br/>");
+    document.write(`Subtotal: ${subtotal}<br/>`);
+    document.write(`Tax (4.5%): ${taxAmount.toFixed(2)}<br/>`);
+    document.write("=================<br/>");
+    document.write(`Order Total: ${grandTotal.toFixed(2)}<br/>`);
+    document.write("=================<br/>");
+
 
     // output totals
 
