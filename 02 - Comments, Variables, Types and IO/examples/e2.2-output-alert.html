@@ -4,7 +4,23 @@
 </head>
 <body>
 <script type="text/Javascript">
-	alert('Welcome to CSCI-215!');
+	let input = prompt("Enter directions: ", "R,Calhoun Street,3.2;L,Concord Street,4.5;R,Wharf Street,0.1").split(";");
+	
+	let inputArray = [];
+	let direction = '';
+	let street = '';
+	let distance = '';
+
+
+	for (let i = 0; i<input.length; i++) {
+		const inputArray = input[i].split(",");
+			direction += inputArray[0];
+			street += inputArray[1];
+			distance += inputArray[2];
+			
+		
+		document.write(`Go ${direction} on ${street} for ${distance} miles <br/>`);
+	}
 </script>
 </body>
 </html>
