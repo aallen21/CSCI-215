@@ -28,7 +28,7 @@
             <p>Choose Tip %</p>
             <!-- Tip % Selection -->
             <div class="input-group mb-3">
-              <select id="tipGroupSelect" class="form-select" onchange="calTipTotal()">
+              <select id="tipGroupSelect" class="form-select" onchange="calTipTotals()" onblur="pageValidation()">
                 <option value= ".05">5%</option>
                 <option value= ".1">10%</option>
                 <option value= ".15">15%</option>
@@ -36,29 +36,51 @@
             </div>
             <!-- Calculated Tip Amount -->
             <p>Tip Amount</p>
-            <div class="input-group mb-3">
-              <span class="input-group-text">$</span>
-              <input type="text" class="form-control" id="tipAmount" aria-label="Amount (to the nearest dollar)" >
+            <div class = "text-left my-5" style = "font-size: 20px;">
+              <span id = "tipAmount">$</span>
             </div>
+              
             <!-- Grand Total -->
             <p>Grand Total</p>
-            <div class="input-group mb-3">
-              <span class="input-group-text">$</span>
-              <input type="text" class="form-control" id="grandTotal" aria-label="Amount (to the nearest dollar)">
+            <div class="text-left my-5" style="font-size: 20px;">
+              <span id = "billTotal">$</span>
             </div>
+        </div>
     </div>
 </div>
 
 
 <script type="text/javascript">
-    function calTipTotal() {
-        dollarInput = document.getElementById('dollarAmount').value;
-        taxPercentSelected = document.getElementById('tipGroupSelect').value;
 
-        totalTax = dollarInput * taxPercentSelected;
+
+    let tipSelectionAmount = 0;
+    let preTaxAmount = 0;
+    let totalTip = 0;
+    let billGrandTotal = 0;
+    let validPage = false;
+    
+    
+
+
+    function calTipTotals() {
+        tipSelectionAmount = document.getElementById('tipGroupSelect').value;
+        preTaxAmount = document.getElementById('dollarAmount').value;
+
+        totalTip = tipSelectionAmount * preTaxAmount;
         
-        document.getElementById('tipAmount').innerHTML = totalTax.toFixed(2);
+
+
+        document.getElementById('tipAmount').innerHTML = "$"+totalTip.toFixed(2);
+
+        grandTotal();
         
+    }
+
+    function grandTotal() {
+
+        billGrandTotal = Number(preTaxAmount) + Number(totalTip);
+
+        document.getElementById('billTotal').innerHTML = "$"+billGrandTotal.toFixed(2);
 
     }
 
